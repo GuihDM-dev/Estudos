@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificação de Nacionalidade</title>
+</head>
+<body>
+    <h1>Nacionalidade</h1>
+    Em siglas de 2 letras ex(br) <input type='text' name="txtnac" id="txtnac">
+    <input type="button" value="verificar" onclick="verificar()">
+    <Div id="situacao">Situação atual no pais: </Div>
+
+    <script>
+        function verificar() {
+            var nac = document.querySelector('input#txtnac')
+            var sit = document.querySelector('div#situacao')
+            var snac = String(nac.value)
+            if (snac == 'br', 'BR' ) {
+                sit.innerText = 'Você é Brasileiro ou foi naturalizado como tal parabéns!'   
+            }
+            else {
+                sit.innerText = 'Você está no Brasil como Estrangeiro!'
+            }
+            
+        }
+    </script>
+    
+</body>
+</html>

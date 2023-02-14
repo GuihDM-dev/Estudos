@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+body {
+    background-color: rgb(197, 235, 214);
+    font-family: Arial, Helvetica, sans-serif;
+}
+.principal {
+    color: white;
+    text-align: center;
+}
+header {
+    background-image: linear-gradient(to bottom, #38C979 40%, #1e6e42,  black);
+    padding: 10px;
+}
+Header > p {
+    text-align: center;
+    color: white;
+}
+main {
+    background-color: white;
+    text-align: center;
+    margin: 40px;
+}
