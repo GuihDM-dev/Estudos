@@ -1,0 +1,43 @@
+* {} para utilizar variaveis dentro do JSX(HTML)
+
+* Logica usada fora do RETURN do app.js 
+
+* Class = ClassName, class nao é permitido
+
+* Componentes renderizam jsx, app.js é um compoonente, arquivos similares também são. normalmente ficam na pasta components, podem ser importandos e exportados.
+
+* Props sao atributos dos componentes
+
+* ESTRUTURA PROPS 
+function Pessoa({Variavel1, Variavel2}){
+    return(
+        <div>
+            <img src={Variave1} alt={Variavel2} />
+        </div>
+    )
+}
+
+
+*CSS especifico para componente = criar arquivo (nome do componente).module.css, nao é possivel criar classes com - nesse arquivo.
+
+*Condicional
+{userEmail && (
+                    <div>
+                        O Email do usuario é {userEmail}
+                    </div>
+                )}
+- && Cria uma condição de se o userEmail é definido, as linhas digitadas apos serão geradas.
+
+*If Else
+{itens.length > 0 ? (
+                itens.map((item, index) => (
+                    <p key={index}> 
+                    {item}
+                    </p>
+                ))) : (
+                    <p>Não há itens na lista!</p>
+                )
+            }
+ Estrutura = Condição ? (resultado da condição) : (resultado do else)
+
+*Renderização de Listas
