@@ -4,7 +4,7 @@ import styles from './NovoProjeto.module.css'
 
 function NovoProjeto () {
 
-    const history = useNavigate()
+    const navigate = useNavigate()
 
     function createPost(project) {
 
@@ -24,7 +24,7 @@ function NovoProjeto () {
         .then((data) => {
             console.log(data)
             // redirect
-            history('/projeto', {message: 'Projeto criado com sucesso!'})
+            navigate('/projeto', {state: {message: 'Projeto criado com sucesso!'}})
         })
         .catch(err => console.log(err))
     }

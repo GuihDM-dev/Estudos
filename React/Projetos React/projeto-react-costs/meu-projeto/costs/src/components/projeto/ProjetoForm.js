@@ -14,7 +14,7 @@ function ProjetoForm({btnText, handleSubmit, projectData}) {
     //Set das categorias
     const [categories, setCategories] = useState([])
 
-    //metodo para enviar categorias do select por get
+    //metodo para enviar categorias para o select por get
     useEffect(() => {
         fetch("http://localhost:5000/categories", {
         method: "GET",
@@ -33,7 +33,7 @@ function ProjetoForm({btnText, handleSubmit, projectData}) {
         //console.log(project)
         handleSubmit(project)
     }
-
+    
     function handleChange(e) {
         setProject({ ...project, [e.target.name]: e.target.value})
     }
