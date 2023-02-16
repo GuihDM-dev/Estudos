@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 
 import Message from "../layout/Message"
 import Container from '../layout/Container'
+import Loading from '../layout/Loading'
 import LinkButton from '../layout/LinkButton'
 import ProjetoCard from '../projeto/ProjetoCard'
 
@@ -10,22 +11,26 @@ import styles from './Projeto.module.css'
 
 function Projeto () {
 
+    const [removeLoading, setRemoveLoading] = useState(false)
     const [projects, setProjects] = useState([])
 
     useEffect(() => {
-
-        fetch('http://localhost:5000/projects', {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        })
-        .then(resp => resp.json())
-        .then(data => {
-            console.log(data)
-            setProjects(data)
-        })
-        .catch(err => console.log(err))
+        setTimeout(() => {
+            fetch('http://localhost:5000/projects', {
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            })
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data)
+                setProjects(data)
+                setRemoveLoading(true)
+            })
+            .catch(err => console.log(err))
+        }, 1000)
+        
     }, [])
 
 
@@ -47,7 +52,8 @@ function Projeto () {
 
             <Container customClass="start">
                 {projects.length > 0 &&
-                    projects.map((project) => <ProjetoCard 
+                    projects.map((project) => (
+                    <ProjetoCard 
                     name={project.name}
                     id={project.id}
                     budget={project.budget}
@@ -55,7 +61,11 @@ function Projeto () {
                     key={project.id}
                     
                      />
-                )}
+                ))}
+                {!removeLoading && <Loading />}
+                {removeLoading && projects.length === 0 &&
+                    <p>Não há Projetos cadastrados!</p>
+                }
             </Container>
         </div>
     )
