@@ -10,11 +10,17 @@ import ProjetoCard from '../projeto/ProjetoCard'
 import styles from './Projeto.module.css'
 
 function Projeto () {
-
+    //Constantes do componente de Loading dos projetos
     const [removeLoading, setRemoveLoading] = useState(false)
+    //Constantes para salvar os projetos requisitados via get
     const [projects, setProjects] = useState([])
-
+    //State de Mensagem
+    const [projectMessage, setProjectMessage] = useState('')
+    
+    
+    //useEffect para requisitar proojoetos do db.json improvisado
     useEffect(() => {
+        //timeout para simular tempo de carregamento e ver o componente de loading
         setTimeout(() => {
             fetch('http://localhost:5000/projects', {
                 method: 'GET',
@@ -32,6 +38,23 @@ function Projeto () {
         }, 1000)
         
     }, [])
+    
+    //remover Projeto
+    function removeProject(id) {
+        fetch(`http://localhost:5000/projects/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        })
+        .then(resp => resp.json())
+        .then(data => {
+            setProjects(projects.filter((project) => project.id !== id ))
+            //messagem de remoção
+            setProjectMessage('Projeto Removido com sucesso!')
+        })
+        .catch(err => console.log(err))
+    }
 
 
     //uso do hook location
@@ -49,9 +72,10 @@ function Projeto () {
                 <LinkButton to="/novoprojeto" text='Criar Projeto' />
             </div>
             {message && <Message type="success"  text={message} />}
-
+            {projectMessage && <Message type="success"  text={projectMessage} />}
             <Container customClass="start">
-                {projects.length > 0 &&
+                {//Loop para exibir os cards de cada projeto da base
+                projects.length > 0 &&
                     projects.map((project) => (
                     <ProjetoCard 
                     name={project.name}
@@ -59,11 +83,17 @@ function Projeto () {
                     budget={project.budget}
                     category={project.category.name}
                     key={project.id}
+                    handleRemove={removeProject}
                     
                      />
                 ))}
-                {!removeLoading && <Loading />}
-                {removeLoading && projects.length === 0 &&
+                
+                {//Condicional para exibir o icone de loading
+                !removeLoading && <Loading />
+                }
+
+                {//Condicional que se nao existirem projetos cadastrados exibe uma mensagem
+                removeLoading && projects.length === 0 &&
                     <p>Não há Projetos cadastrados!</p>
                 }
             </Container>
