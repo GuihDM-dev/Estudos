@@ -7,43 +7,13 @@
         "id": "2",
         "name": "Desenvolvimento"
       },
-      "cost": 2950,
+      "cost": 500,
       "services": [
         {
-          "name": "meu serviço novo",
-          "cost": "100",
-          "descriptiion": "teste",
-          "id": "2e1bb9d6-4352-4d67-b982-ada0a375cdc2"
-        },
-        {
-          "name": "meu serviço novo",
-          "cost": "600",
-          "descriptiion": "Correr ate amanhã",
-          "id": "84af40af-e024-41c7-a2c9-c0e5e1b4efb3"
-        },
-        {
-          "name": "meu serviço novo 3",
-          "cost": "900",
-          "descriptiion": "Correr ate amanhã",
-          "id": "f25c0ece-9875-4a67-9505-06ffe006205e"
-        },
-        {
           "name": "meu serviço novo 2",
-          "cost": "50",
+          "cost": "500",
           "descriptiion": "teste",
-          "id": "b962151b-adfc-468c-a79b-a04d609525a0"
-        },
-        {
-          "name": "meu serviço novo 2",
-          "cost": "600",
-          "descriptiion": "Correr ate amanhã",
-          "id": "d1c31ebb-6fe4-41a1-90fd-1cc01e72304a"
-        },
-        {
-          "name": "Guilherme (2)",
-          "cost": "700",
-          "descriptiion": "teste",
-          "id": "94c5fe42-9082-4694-be1b-f619627026f4"
+          "id": "0f980cf2-1bdd-4038-8fa4-e1bb757cf5b4"
         }
       ],
       "id": 3
