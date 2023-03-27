@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Estudos.iml" filepath="$PROJECT_DIR$/Estudos.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maratona-java/maratona-java.iml" filepath="$PROJECT_DIR$/maratona-java/maratona-java.iml" />
+    </modules>
+  </component>
+</project>
